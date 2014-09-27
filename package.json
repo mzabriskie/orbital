@@ -1,0 +1,27 @@
+{
+  "name": "orbital",
+  "version": "0.0.0",
+  "description": "Blogging platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mzabriskie/orbital.git"
+  },
+  "author": "Matt Zabriskie <mzabriskie@gmail.com> (http://www.mattzabriskie.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mzabriskie/orbital/issues"
+  },
+  "homepage": "https://github.com/mzabriskie/orbital",
+  "dependencies": {
+    "react-router": "^0.7.0",
+    "react": "^0.11.2",
+    "firebase": "^1.0.24",
+    "pushstate-server": "^1.1.0",
+    "minimist": "^1.1.0"
+  }
+}

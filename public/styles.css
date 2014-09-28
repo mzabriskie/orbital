@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300,500);
+
+body {
+	color: #222;
+	font-family: 'Raleway', sans-serif;
+	font-size: large;
+	font-weight: 300;
+	line-height: 1.5;
+	margin: 0;
+}
+
+header,
+footer {
+	background-color: #222;
+	color: #fff;
+	padding: 65px 0;
+	text-align: center;
+}
+
+section {
+	margin: 100px auto;
+	max-width: 750px;
+	width: 75%;
+}
+
+h1 {
+	font-size: xx-large;
+}
+h3 {
+	font-style: italic;
+	font-weight: 300;
+}
+h1, h2, h3 {
+	margin: 0;
+}
+
+/* Index */
+div > header > img {
+	border: 5px solid #fff;
+	border-radius: 200px;
+	height: 100px;
+	width: 100px;
+}
+div > section > ul {
+	margin: -50px 0;
+	padding-left: 0;
+	list-style: none;
+}
+div > section > ul li {
+	padding: 50px 0;
+	border-bottom: 1px solid #eee;
+}
+div > section > ul li:last-of-type {
+	border: 0 none;
+}
+div > section > ul li a {
+	color: inherit;
+	text-decoration: none;
+}
+div > section > ul li a:hover {
+	text-decoration: underline;
+}
+div > section > ul li time {
+	float: right;
+}
+
+/* Article */
+article > header img {
+	border: 2px solid #fff;
+	border-radius: 110px;
+	height: 55px;
+	width: 55px;
+	margin-top: 35px;
+}
+article a {
+	border: 0 none;
+	color: #fff;
+	text-decoration: none;
+}
+article > header a {
+	font-size: medium;
+}
+
+article > footer > h2 {
+	font-size: x-large;
+}
+article > footer > h2 a {
+	text-decoration: underline;
+}

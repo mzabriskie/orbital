@@ -3,6 +3,7 @@
 var React = require('react');
 var Disqus = require('react-disqus-thread');
 var marked = require('marked');
+var moment = require('moment');
 var ShareSocial = require('../components/ShareSocial');
 var AVG_WORDS_MINUTE = 250;
 
@@ -56,7 +57,7 @@ module.exports = React.createClass({
 		'```\n\n' +
 		'- A\n- B\n- C';
 		var markup = marked(markdown);
-		var publishDate = 'Oct 5, 2014';
+		var publishDate = moment().format('MMM D, YYYY');
 		var readingTime = Math.round(markdown.split(' ').length / AVG_WORDS_MINUTE);
 
 		return (

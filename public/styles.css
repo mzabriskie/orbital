@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:300,500);
 
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
 body {
 	color: #222;
 	font-family: 'Raleway', sans-serif;
@@ -86,4 +91,56 @@ article > footer > h2 {
 }
 article > footer > h2 a {
 	text-decoration: underline;
+}
+
+
+/* Code inline */
+.markdown-body code {
+	background: #f7f7f7;
+	border-radius: 3px;
+	color: #555;
+	padding: 2px 5px;
+}
+/* Code blocks */
+.markdown-body pre code {
+	display: block;
+	padding: 15px;
+	overflow: auto;
+}
+
+.article-meta {
+	color: #999;
+	font-style: italic;
+}
+.article-meta > span {
+	margin-right: 25px;
+}
+.article-meta i {
+	margin-right: 10px;
+}
+
+.share-social {
+	float: right;
+}
+.share-social a {
+	color: inherit;
+}
+.share-social a:hover {
+	color: #333;
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+.markdown-body table th,
+.markdown-body table td {
+	border: 1px solid #ddd;
+	padding: 6px 12px;
+}
+.markdown-body table tr {
+	background: #fff;
 }

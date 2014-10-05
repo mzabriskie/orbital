@@ -24,7 +24,8 @@
     "pushstate-server": "^1.1.0",
     "minimist": "^1.1.0",
     "marked": "^0.3.2",
-    "highlight.js": "^8.2.0"
+    "highlight.js": "^8.2.0",
+    "react-disqus-thread": "git+https://git@github.com/mzabriskie/react-disqus-thread.git"
   },
   "devDependencies": {
     "jsx-loader": "^0.11.2",

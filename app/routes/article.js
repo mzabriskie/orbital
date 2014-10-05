@@ -1,7 +1,9 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var Disqus = require('react-disqus-thread');
 var marked = require('marked');
+var ShareSocial = require('../components/ShareSocial');
 var AVG_WORDS_MINUTE = 250;
 
 marked.setOptions({
@@ -22,7 +24,11 @@ module.exports = React.createClass({
 		'## Header\n\n' +
 		'Donec non sem ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac porta lectus. Phasellus mauris arcu, pretium sed ex vel, varius pellentesque elit. Morbi sollicitudin gravida est sed consectetur. Sed ut ex ligula. Nullam dapibus placerat velit vel cursus. Suspendisse ut ligula eleifend, rhoncus nisi a, luctus velit. Sed sed auctor nulla, ut dignissim sapien. Nullam eu malesuada ligula. Quisque vehicula orci a cursus imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi quam, convallis quis condimentum sit amet, faucibus in justo. Integer nulla tellus, porta eu sollicitudin sit amet, iaculis sit amet libero. Nunc a pulvinar arcu.\n\n' +
 		'This is a sentance that has `code` in the middle.\n\n' +
-		'<table><thead><tr><th>F</th><th>B</th></tr></thead><tbody><tr><td>foo</td><td>bar</td></tr><tr><td>fart</td><td>bart</td></tr></tbody></table>\n\n' +
+		'<table><thead><tr><th>F</th><th>B</th></tr></thead><tbody>' +
+		'<tr><td>foo</td><td>boo</td></tr>' +
+		'<tr><td>far</td><td>bar</td></tr>' +
+		'<tr><td>fart</td><td>bart</td></tr>' +
+		'</tbody></table>\n\n' +
 		'```js\n' +
 		'/** @jsx React.DOM */\n' +
 		'var React = require(\'react\');\n\n' +
@@ -52,16 +58,6 @@ module.exports = React.createClass({
 		var markup = marked(markdown);
 		var publishDate = 'Oct 5, 2014';
 		var readingTime = Math.round(markdown.split(' ').length / AVG_WORDS_MINUTE);
-		markup = '<div class="article-meta">' +
-								'<span><i class="icon-calendar"></i>' + publishDate + '</span>' +
-								'<span><i class="icon-time"></i>' + readingTime + ' minute read</span>' +
-								'<span class="share-social">' +
-									'<a href="javascript://" title="Share on Twitter"><i class="icon-twitter"></i></a>' +
-									'<a href="javascript://" title="Share on Facebook"><i class="icon-facebook"></i></a>' +
-									'<a href="javascript://" title="Share on Google+"><i class="icon-google-plus"></i></a>' +
-								'</span>' +
-							'</div>' +
-							markup;
 
 		return (
 			<article role="main">
@@ -73,7 +69,21 @@ module.exports = React.createClass({
 						<a href="/">Matt Zabriskie</a>
 					</div>
 				</header>
+				<section>
+					<div className="article-meta">
+						<span><i className="icon-calendar"></i>{publishDate}</span>
+						<span><i className="icon-time"></i>{readingTime} minute read</span>
+						<ShareSocial/>
+					</div>
+				</section>
 				<section className="markdown-body" dangerouslySetInnerHTML={{__html: markup}}/>
+				<section>
+					<div className="article-meta">
+						<span><a href="javascript://"><i className="icon-comment"></i> View Comments</a></span>
+						<ShareSocial/>
+					</div>
+					<Disqus shortname="mzabriskie" identifier="orbit-example" title="My Article"/>
+				</section>
 				<footer>
 					<h2>
 						<a href="/blog/another">Read Next: Some other Article</a>

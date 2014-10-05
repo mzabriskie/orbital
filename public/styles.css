@@ -46,6 +46,10 @@ h1, h2, h3 {
 	margin: 0;
 }
 
+.hidden {
+	display: none;
+}
+
 /* Index */
 div > header > img {
 	border: 5px solid #fff;

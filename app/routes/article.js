@@ -14,6 +14,18 @@ marked.setOptions({
 });
 
 module.exports = React.createClass({
+	getInitialState: function () {
+		return {
+			commentsVisible: false
+		}
+	},
+
+	handleCommentsClick: function () {
+		this.setState({
+			commentsVisible: !this.state.commentsVisible
+		});
+	},
+
 	render: function () {
 		var markdown = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum lacus ut ultricies convallis. Phasellus egestas, augue a gravida accumsan, tortor lacus blandit dolor, eget euismod leo elit vel tellus. Aenean nec diam ornare orci condimentum mollis. Phasellus in libero quis mi malesuada suscipit sit amet eget eros. Sed a mi pharetra, dapibus enim a, posuere ex. Quisque vel dignissim turpis. Sed sed magna tempus, aliquet massa id, sodales elit. Duis quis elementum ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin ultrices dignissim tellus at ultrices. Ut sit amet odio in velit placerat tempus eget scelerisque tellus. Fusce libero libero, maximus vitae posuere et, mollis ut sem. Aenean tincidunt urna et placerat porta. Etiam malesuada odio sed orci blandit tincidunt. Pellentesque imperdiet molestie risus, vel tincidunt nulla dictum et. In hac habitasse platea dictumst.\n\n' +
 		'## Header\n\n' +
@@ -59,6 +71,8 @@ module.exports = React.createClass({
 		var markup = marked(markdown);
 		var publishDate = moment().format('MMM D, YYYY');
 		var readingTime = Math.round(markdown.split(' ').length / AVG_WORDS_MINUTE);
+		var disqusClassName = this.state.commentsVisible ? '' : 'hidden';
+		var toggleCommentsMessage = this.state.commentsVisible ? 'Hide Comments' : 'View Comments';
 
 		return (
 			<article role="main">
@@ -80,10 +94,10 @@ module.exports = React.createClass({
 				<section className="markdown-body" dangerouslySetInnerHTML={{__html: markup}}/>
 				<section>
 					<div className="article-meta">
-						<span><a href="javascript://"><i className="icon-comment"></i> View Comments</a></span>
+						<span><a href="javascript://" onClick={this.handleCommentsClick}><i className="icon-comment"></i> {toggleCommentsMessage}</a></span>
 						<ShareSocial/>
 					</div>
-					<Disqus shortname="mzabriskie" identifier="orbit-example" title="My Article"/>
+					<Disqus className={disqusClassName} shortname="mzabriskie" identifier="orbit-example" title="My Article"/>
 				</section>
 				<footer>
 					<h2>

@@ -4,6 +4,7 @@ var React = require('react');
 var Disqus = require('react-disqus-thread');
 var marked = require('marked');
 var moment = require('moment');
+var config = require('../config/config');
 var ShareSocial = require('../components/ShareSocial');
 var AVG_WORDS_MINUTE = 250;
 
@@ -97,7 +98,7 @@ module.exports = React.createClass({
 						<span><a href="javascript://" onClick={this.handleCommentsClick}><i className="icon-comment"></i> {toggleCommentsMessage}</a></span>
 						<ShareSocial/>
 					</div>
-					<Disqus className={disqusClassName} shortname="mzabriskie" identifier="orbit-example" title="My Article"/>
+					<Disqus className={disqusClassName} shortname={config.disqus.shortname} identifier="orbit-example" title="My Article"/>
 				</section>
 				<footer>
 					<h2>

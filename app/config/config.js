@@ -1,4 +1,14 @@
 module.exports = {
+	google: {
+		analytics: ''
+	},
+	disqus: {
+		shortname: 'mzabriskie'
+	},
+	router: {
+		location: 'history'
+	}
+
 	/*
 	- apps -
 	GoogleAnalytics

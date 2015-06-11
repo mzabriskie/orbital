@@ -1,9 +1,7 @@
-/** @jsx React.DOM */
+import React, { Component } from 'react';
 
-var React = require('react');
-
-module.exports = React.createClass({
-	render: function () {
+export default class Home extends Component {
+	render() {
 		var articles = [];
 		for (var i=0; i<10; i++) {
 			articles.push(
@@ -29,4 +27,4 @@ module.exports = React.createClass({
 			</div>
 		);
 	}
-});
+};

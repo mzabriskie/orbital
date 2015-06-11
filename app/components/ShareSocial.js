@@ -1,8 +1,7 @@
-/** @jsx React.DOM */
-var React = require('react');
+import React, { Component } from 'react';
 
-module.exports = React.createClass({
-	render: function () {
+export default class ShareSocial extends Component {
+	render() {
 		return (
 			<span className="share-social">
 				<a href="javascript://" title="Share on Twitter"><i className="icon-twitter"></i></a>
@@ -11,4 +10,4 @@ module.exports = React.createClass({
 			</span>
 		);
 	}
-});
+};

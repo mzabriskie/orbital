@@ -1,3 +1,12 @@
+var webpack = require('webpack');
+var plugins = [];
+
+if (process.env.PRODUCTION) {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin()
+  );
+}
+
 module.exports = {
 	entry: './app/main.js',
 	output: {
@@ -5,7 +14,8 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{test: /\.js$/, loader: 'jsx-loader'}
+			{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
 		]
-	}
+	},
+  plugins: plugins
 };

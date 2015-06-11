@@ -1,12 +1,10 @@
-/** @jsx React.DOM */
-
-var React = require('react');
-var Disqus = require('react-disqus-thread');
-var marked = require('marked');
-var moment = require('moment');
-var config = require('../config/config');
-var ShareSocial = require('../components/ShareSocial');
-var AVG_WORDS_MINUTE = 250;
+import React, { Component } from 'react';
+import Disqus from 'react-disqus-thread';
+import marked from 'marked';
+import moment from 'moment';
+import config from '../config/config';
+import ShareSocial from '../components/ShareSocial';
+const AVG_WORDS_MINUTE = 250;
 
 marked.setOptions({
 	highlight: function (code) {
@@ -14,20 +12,22 @@ marked.setOptions({
 	}
 });
 
-module.exports = React.createClass({
-	getInitialState: function () {
-		return {
-			commentsVisible: false
-		}
-	},
+export default class Article extends Component {
+  constructor(props) {
+    super(props);
 
-	handleCommentsClick: function () {
+    this.state = {
+      commentsVisible: false
+    };
+  }
+
+	handleCommentsClick () {
 		this.setState({
 			commentsVisible: !this.state.commentsVisible
 		});
-	},
+	}
 
-	render: function () {
+	render () {
 		var markdown = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum lacus ut ultricies convallis. Phasellus egestas, augue a gravida accumsan, tortor lacus blandit dolor, eget euismod leo elit vel tellus. Aenean nec diam ornare orci condimentum mollis. Phasellus in libero quis mi malesuada suscipit sit amet eget eros. Sed a mi pharetra, dapibus enim a, posuere ex. Quisque vel dignissim turpis. Sed sed magna tempus, aliquet massa id, sodales elit. Duis quis elementum ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin ultrices dignissim tellus at ultrices. Ut sit amet odio in velit placerat tempus eget scelerisque tellus. Fusce libero libero, maximus vitae posuere et, mollis ut sem. Aenean tincidunt urna et placerat porta. Etiam malesuada odio sed orci blandit tincidunt. Pellentesque imperdiet molestie risus, vel tincidunt nulla dictum et. In hac habitasse platea dictumst.\n\n' +
 		'## Header\n\n' +
 		'Morbi enim nisi, consectetur ac massa in, eleifend sodales ipsum. Praesent fringilla sem vel felis commodo, nec tincidunt neque viverra. Quisque molestie, orci at scelerisque accumsan, purus odio eleifend eros, quis tempus urna lorem sed ex. Phasellus a lorem nec nisi efficitur consequat. Nulla finibus faucibus ultricies. Pellentesque nec quam elementum, mollis augue nec, venenatis velit. Etiam mattis felis quis aliquet vulputate. Nunc at massa vitae ipsum egestas sagittis nec et justo.\n\n' +
@@ -95,7 +95,12 @@ module.exports = React.createClass({
 				<section className="markdown-body" dangerouslySetInnerHTML={{__html: markup}}/>
 				<section>
 					<div className="article-meta">
-						<span><a href="javascript://" onClick={this.handleCommentsClick}><i className="icon-comment"></i> {toggleCommentsMessage}</a></span>
+						<span>
+              <a href="javascript://" onClick={this.handleCommentsClick.bind(this)}>
+                <i className="icon-comment"></i>{' '}
+                {toggleCommentsMessage}
+              </a>
+            </span>
 						<ShareSocial/>
 					</div>
 					<Disqus className={disqusClassName} shortname={config.disqus.shortname} identifier="orbit-example" title="My Article"/>
@@ -108,4 +113,4 @@ module.exports = React.createClass({
 			</article>
 		);
 	}
-});
+};

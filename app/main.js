@@ -1,4 +1,7 @@
-var React = require('react');
-var Router = require('./config/router');
+import React from 'react';
+import Router from 'react-router';
+import routes from './config/routes';
 
-React.renderComponent(Router, document.body);
+Router.run(routes, Router.HistoryLocation, function (Handler) {
+  React.render(<Handler/>, document.getElementById('container'));
+});

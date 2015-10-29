@@ -16,6 +16,7 @@ const MARKDOWN = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenea
 		'## Header\n\n' +
 		'Donec non sem ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac porta lectus. Phasellus mauris arcu, pretium sed ex vel, varius pellentesque elit. Morbi sollicitudin gravida est sed consectetur. Sed ut ex ligula. Nullam dapibus placerat velit vel cursus. Suspendisse ut ligula eleifend, rhoncus nisi a, luctus velit. Sed sed auctor nulla, ut dignissim sapien. Nullam eu malesuada ligula. Quisque vehicula orci a cursus imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi quam, convallis quis condimentum sit amet, faucibus in justo. Integer nulla tellus, porta eu sollicitudin sit amet, iaculis sit amet libero. Nunc a pulvinar arcu.\n\n' +
 		'This is a sentance that has `code` in the middle.\n\n' +
+    '<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I made a thing: <a href="https://t.co/THORs8ZtKb">https://t.co/THORs8ZtKb</a></p>&mdash; Matt Zabriskie (@mzabriskie) <a href="https://twitter.com/mzabriskie/status/658737202550079488">October 26, 2015</a></blockquote>' +
 		'<table><thead><tr><th>F</th><th>B</th></tr></thead><tbody>' +
 		'<tr><td>foo</td><td>boo</td></tr>' +
 		'<tr><td>far</td><td>bar</td></tr>' +
@@ -60,6 +61,20 @@ export default class Article extends Component {
     this.state = {
       commentsVisible: false
     };
+  }
+
+  componentDidMount() {
+    // Support for injecting Twitter widgets
+    var script = this.__twitterScript = document.createElement('script');
+    script.async = true;
+    script.charset = 'utf-8';
+    script.src = '//platform.twitter.com/widgets.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  componentWillUnmount() {
+    var script = this.__twitterScript;
+    script.parentNode.removeChild(script);
   }
 
 	handleCommentsClick () {

@@ -18,15 +18,16 @@
   },
   "homepage": "https://github.com/mzabriskie/orbital",
   "dependencies": {
-    "react-router": "^0.13.3",
-    "react": "^0.13.3",
     "firebase": "^2.2.7",
-    "pushstate-server": "^1.6.0",
-    "minimist": "^1.1.1",
-    "marked": "^0.3.3",
     "highlight.js": "^8.6.0",
+    "marked": "^0.3.3",
+    "minimist": "^1.1.1",
     "moment": "^2.10.3",
-    "react-disqus-thread": "^0.2.2"
+    "pushstate-server": "^1.6.0",
+    "react": "^0.14.0",
+    "react-disqus-thread": "^0.3.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3"
   },
   "devDependencies": {
     "webpack": "^1.9.10",

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Router, Route } from 'react-router';
+import Home from '../screens/Home';
+import Article from '../screens/Article';
 import config from './config';
 
 export default (
-	<Route location={config.router.location}>
-		<Route name="index" path="/" handler={require('../routes/index')}/>
-		<Route name="article" path="/blog/:article" handler={require('../routes/article')}/>
-	</Route>
+	<Router location={config.router.location}>
+		<Route name="index" path="/" component={Home}/>
+		<Route name="article" path="/blog/:article" component={Article}/>
+	</Router>
 );

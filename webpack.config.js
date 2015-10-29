@@ -8,7 +8,7 @@ if (process.env.PRODUCTION) {
 }
 
 module.exports = {
-	entry: './app/main.js',
+	entry: './app/index.js',
 	output: {
 		filename: 'public/bundle.js'
 	},

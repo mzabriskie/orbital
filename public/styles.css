@@ -6,12 +6,9 @@
 }
 
 body {
-  background: #222 url(https://silvrback.s3.amazonaws.com/uploads/52319cc5-df9f-407d-80d9-1e3817aa64b1/totem_large.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
+  /* background-image: linear-gradient(to right, #40f, #c0f); */
+  /* background-image: linear-gradient(to right, #0f7, #0ef); */
+  background: #222;
 	color: #222;
 	font-family: 'Raleway', sans-serif;
 	font-size: large;
@@ -23,7 +20,7 @@ body {
 header,
 footer {
 	color: #fff;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
 	padding: 65px 0;
 	text-align: center;
 }
@@ -33,7 +30,7 @@ footer,
 section {
   margin: 0 auto;
   max-width: 750px;
-  width: 75;
+  width: 75%;
 }
 
 header menuitem,
@@ -59,6 +56,28 @@ h4 {
 }
 h1, h2, h3, h4 {
 	margin: 0;
+}
+
+#container {
+  position: relative;
+}
+
+#cover-image {
+  background: url(https://silvrback.s3.amazonaws.com/uploads/52319cc5-df9f-407d-80d9-1e3817aa64b1/totem_large.jpg) no-repeat center center fixed;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  -webkit-filter: opacity(.7);
+  filter: opacity(.7);
+  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .content-wrapper {

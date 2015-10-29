@@ -125,7 +125,7 @@ export default class Article extends Component {
         </div>
 				<footer className="Article__Footer">
 					<h2>
-						<a href="/blog/another">Read Next: Some other Article</a>
+						<a href="/articles/another">Read Next: Some other Article</a>
 					</h2>
           <Footer/>
 				</footer>

@@ -4,6 +4,7 @@ import marked from 'marked';
 import moment from 'moment';
 import config from '../../config/config';
 import ShareSocial from './components/ShareSocial';
+import Footer from 'shared/components/Footer';
 const AVG_WORDS_MINUTE = 250;
 
 const MARKDOWN = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum lacus ut ultricies convallis. Phasellus egestas, augue a gravida accumsan, tortor lacus blandit dolor, eget euismod leo elit vel tellus. Aenean nec diam ornare orci condimentum mollis. Phasellus in libero quis mi malesuada suscipit sit amet eget eros. Sed a mi pharetra, dapibus enim a, posuere ex. Quisque vel dignissim turpis. Sed sed magna tempus, aliquet massa id, sodales elit. Duis quis elementum ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin ultrices dignissim tellus at ultrices. Ut sit amet odio in velit placerat tempus eget scelerisque tellus. Fusce libero libero, maximus vitae posuere et, mollis ut sem. Aenean tincidunt urna et placerat porta. Etiam malesuada odio sed orci blandit tincidunt. Pellentesque imperdiet molestie risus, vel tincidunt nulla dictum et. In hac habitasse platea dictumst.\n\n' +
@@ -91,39 +92,42 @@ export default class Article extends Component {
 		var toggleCommentsMessage = this.state.commentsVisible ? 'Hide Comments' : 'View Comments';
 
 		return (
-			<article role="main">
-				<header>
+			<article role="main" className="Article">
+				<header className="Article__Header">
 					<h1>My Article</h1>
 					<h3>This is where the subheader goes</h3>
-					<a href="/"><img src="https://avatars.githubusercontent.com/u/199035?s=150"/></a>
+					<a href="/"><img className="Article__Avatar" src="https://avatars.githubusercontent.com/u/199035?s=150"/></a>
 					<div>
 						<a href="/">Matt Zabriskie</a>
 					</div>
 				</header>
-				<section>
-					<div className="article-meta">
-						<span><i className="icon-calendar"></i>{publishDate}</span>
-						<span><i className="icon-time"></i>{readingTime} minute read</span>
-						<ShareSocial/>
-					</div>
-				</section>
-				<section className="markdown-body" dangerouslySetInnerHTML={{__html: markup}}/>
-				<section>
-					<div className="article-meta">
-						<span>
-              <a href="javascript://" onClick={this.handleCommentsClick.bind(this)}>
-                <i className="icon-comment"></i>{' '}
-                {toggleCommentsMessage}
-              </a>
-            </span>
-						<ShareSocial/>
-					</div>
-					<Disqus className={disqusClassName} shortname={config.disqus.shortname} identifier="orbit-example" title="My Article"/>
-				</section>
-				<footer>
+        <div className="content-wrapper">
+          <section>
+            <div className="Article__Meta">
+              <span><i className="icon-calendar"></i>{publishDate}</span>
+              <span><i className="icon-time"></i>{readingTime} minute read</span>
+              <ShareSocial/>
+            </div>
+          </section>
+          <section className="Article__Markdown" dangerouslySetInnerHTML={{__html: markup}}/>
+          <section>
+            <div className="Article__Meta">
+              <span>
+                <a href="javascript://" onClick={this.handleCommentsClick.bind(this)}>
+                  <i className="icon-comment"></i>{' '}
+                  {toggleCommentsMessage}
+                </a>
+              </span>
+              <ShareSocial/>
+            </div>
+            <Disqus className={disqusClassName} shortname={config.disqus.shortname} identifier="orbit-example" title="My Article"/>
+          </section>
+        </div>
+				<footer className="Article__Footer">
 					<h2>
 						<a href="/blog/another">Read Next: Some other Article</a>
 					</h2>
+          <Footer/>
 				</footer>
 			</article>
 		);

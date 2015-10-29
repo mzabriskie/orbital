@@ -6,6 +6,12 @@
 }
 
 body {
+  background: #222 url(https://silvrback.s3.amazonaws.com/uploads/52319cc5-df9f-407d-80d9-1e3817aa64b1/totem_large.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 	color: #222;
 	font-family: 'Raleway', sans-serif;
 	font-size: large;
@@ -14,25 +20,30 @@ body {
 	margin: 0;
 }
 
-header {
-	margin-bottom: 100px;
-}
-footer {
-	margin-top: 100px;
-}
-
 header,
 footer {
-	background-color: #222;
 	color: #fff;
+  text-shadow: 1px 1px 1px #000;
 	padding: 65px 0;
 	text-align: center;
 }
 
+header,
+footer,
 section {
-	margin: 0 auto;
-	max-width: 750px;
-	width: 75%;
+  margin: 0 auto;
+  max-width: 750px;
+  width: 75;
+}
+
+header menuitem,
+footer menuitem {
+  margin: 0 20px;
+}
+
+footer i {
+  font-size: 25px;
+  margin: 0 10px;
 }
 
 h1 {
@@ -42,125 +53,138 @@ h3 {
 	font-style: italic;
 	font-weight: 300;
 }
-h1, h2, h3 {
+h4 {
+  font-style: italic;
+  font-weight: 200;
+}
+h1, h2, h3, h4 {
 	margin: 0;
+}
+
+.content-wrapper {
+  background: #fff;
+	padding: 100px 0;
 }
 
 .hidden {
 	display: none;
 }
 
-/* Index */
-div > header > img {
+/* Home */
+.Home a {
+  color: #fff;
+  text-decoration: none;
+}
+.Home a:hover {
+  text-decoration: underline;
+}
+.Home__Avatar {
 	border: 5px solid #fff;
 	border-radius: 200px;
 	height: 100px;
 	width: 100px;
 }
-div > section > ul {
+.Home__ArticleList {
 	margin: -50px 0;
 	padding-left: 0;
 	list-style: none;
 }
-div > section > ul li {
+.Home__ArticleList__Item {
 	padding: 50px 0;
 	border-bottom: 1px solid #eee;
 }
-div > section > ul li:last-of-type {
+.Home__ArticleList__Item:last-of-type {
 	border: 0 none;
 }
-div > section > ul li a {
+.Home__ArticleList__Item a {
 	color: inherit;
 	text-decoration: none;
 }
-div > section > ul li a:hover {
+.Home__ArticleList__Item a:hover {
 	text-decoration: underline;
 }
-div > section > ul li time {
+.Home__ArticleList__Item time {
 	float: right;
 }
 
 /* Article */
-article > header img {
+.Article a {
+	border: 0 none;
+	color: #fff;
+	text-decoration: none;
+}
+.Article__Avatar {
 	border: 2px solid #fff;
 	border-radius: 110px;
 	height: 55px;
 	width: 55px;
 	margin-top: 35px;
 }
-article a {
-	border: 0 none;
-	color: #fff;
-	text-decoration: none;
-}
-article > header a {
+.Article__Header a {
 	font-size: medium;
 }
 
-article > footer > h2 {
+.Article__Footer h2 {
 	font-size: x-large;
 }
-article > footer > h2 a {
+.Article__Footer h2 a {
 	text-decoration: underline;
 }
+.Article__Meta {
+	color: #999;
+	font-style: italic;
+}
+.Article__Meta > span {
+	margin-right: 25px;
+}
+.Article__Meta i {
+	margin: 0 5px;
+}
+.Article__Meta a {
+	color: inherit;
+}
+.Article__Meta a:hover {
+	color: #333;
+}
 
+.Article__Meta .ShareSocial {
+	float: right;
+	margin-right: 0;
+}
 
 /* Code inline */
-.markdown-body {
+.Article__Markdown {
 	margin-bottom: 50px;
 }
-.markdown-body code {
+.Article__Markdown code {
 	background: #f7f7f7;
 	border-radius: 3px;
 	color: #555;
 	padding: 2px 5px;
 }
 /* Code blocks */
-.markdown-body pre code {
+.Article__Markdown pre code {
 	display: block;
 	padding: 15px;
 	overflow: auto;
 }
-
-.article-meta {
-	color: #999;
-	font-style: italic;
-}
-.article-meta > span {
-	margin-right: 25px;
-}
-.article-meta i {
-	margin-right: 10px;
-}
-
-.article-meta .share-social {
-	float: right;
-	margin-right: 0;
-}
-.article-meta a {
-	color: inherit;
-}
-.article-meta a:hover {
-	color: #333;
-}
-
-.markdown-body table {
+.Article__Markdown table {
 	border-spacing: 0;
 	border-collapse: collapse;
 }
-.markdown-body table tr:nth-child(2n) {
+.Article__Markdown table tr:nth-child(2n) {
 	background-color: #f8f8f8;
 }
-.markdown-body table th,
-.markdown-body table td {
+.Article__Markdown table th,
+.Article__Markdown table td {
 	border: 1px solid #ddd;
 	padding: 6px 12px;
 }
-.markdown-body table tr {
+.Article__Markdown table tr {
 	background: #fff;
 }
 
-
+/* Disqus Thread component */
 #disqus_thread {
 	border-top: 1px solid #eee;
 	margin-top: 50px;

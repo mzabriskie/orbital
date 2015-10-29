@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 var plugins = [];
 
@@ -17,5 +18,10 @@ module.exports = {
 			{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
 		]
 	},
+  resolve: {
+    alias: {
+      shared: path.resolve(__dirname, 'app/shared')
+    }
+  },
   plugins: plugins
 };

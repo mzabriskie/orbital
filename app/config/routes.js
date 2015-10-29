@@ -9,6 +9,6 @@ let history = createBrowserHistory();
 export default (
 	<Router history={history}>
 		<Route path="/" component={Home}/>
-		<Route path="/article/:article" component={Article}/>
+		<Route path="/articles/:article" component={Article}/>
 	</Router>
 );

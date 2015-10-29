@@ -27,7 +27,7 @@ export default () => {
         <img className="Home__Avatar" src="https://avatars.githubusercontent.com/u/199035?s=150"/>
         <h1>Matt Zabriskie</h1>
         <h4>
-          Open source hacker working on axios HTTP client, and <a href="https://twitter.com/reactjs" target="_blank">@reactjs</a> stuff with <a href="https://github.com/rackt" target="_blank">rackt</a>. Co-organizer of <a href="https://twitter.com/ReactRally" target="_blank">@ReactRally</a>, <a href="https://twitter.com/ReactJSUtah" target="_blank">@ReactJSUtah</a>, and <a href="https://twitter.com/lunch_js" target="_blank">@lunch_js</a>.
+          Open source hacker working on <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a> HTTP client, and <a href="https://twitter.com/reactjs" target="_blank">@reactjs</a> stuff with <a href="https://github.com/rackt" target="_blank">rackt</a>. Co-organizer of <a href="https://twitter.com/ReactRally" target="_blank">@ReactRally</a>, <a href="https://twitter.com/ReactJSUtah" target="_blank">@ReactJSUtah</a>, and <a href="https://twitter.com/lunch_js" target="_blank">@lunch_js</a>.
         </h4>
         <Navigation/>
       </header>

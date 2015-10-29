@@ -5,6 +5,7 @@ export default () => {
     <menu>
       <menuitem><a href="/">Articles</a></menuitem>
       <menuitem><a href="/talks">Talks</a></menuitem>
+      <menuitem><a href="/projects">Projects</a></menuitem>
       <menuitem><a href="/about">About</a></menuitem>
       <menuitem><a href="/contact">Contact</a></menuitem>
     </menu>

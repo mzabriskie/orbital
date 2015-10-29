@@ -8,7 +8,7 @@ export default class Home extends Component {
 			articles.push(
 				<li key={i}>
 					<time>Sep 27, 2014</time>
-					<h2><Link to="/blog/article-title">Article Title</Link></h2>
+					<h2><Link to="/article/article-title">Article Title</Link></h2>
 					<h3>Subtitle for the article</h3>
 				</li>
 			);

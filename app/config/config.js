@@ -4,9 +4,6 @@ module.exports = {
 	},
 	disqus: {
 		shortname: 'mzabriskie'
-	},
-	router: {
-		location: 'history'
 	}
 
 	/*

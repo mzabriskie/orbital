@@ -16,38 +16,55 @@ const MARKDOWN = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenea
 		'Praesent posuere lorem viverra, sollicitudin sem luctus, faucibus elit. Maecenas et arcu dolor. Vestibulum aliquam orci nec viverra scelerisque. Curabitur sit amet arcu at ex rutrum ullamcorper. Vivamus condimentum congue elit et varius. Donec sit amet tincidunt massa. Quisque vel augue nunc. Suspendisse molestie suscipit porttitor. Cras congue nunc ut suscipit bibendum. Duis hendrerit posuere augue sit amet aliquam. In fermentum enim ut purus porttitor, ut ultrices enim ultrices. Sed vitae sapien condimentum, semper neque in, pellentesque velit. Donec a erat eu elit ultricies maximus. Mauris faucibus commodo mauris ut hendrerit. Vestibulum tincidunt ullamcorper condimentum. Sed consequat tellus lectus, sed ornare massa dapibus a.\n\n' +
 		'## Header\n\n' +
 		'Donec non sem ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac porta lectus. Phasellus mauris arcu, pretium sed ex vel, varius pellentesque elit. Morbi sollicitudin gravida est sed consectetur. Sed ut ex ligula. Nullam dapibus placerat velit vel cursus. Suspendisse ut ligula eleifend, rhoncus nisi a, luctus velit. Sed sed auctor nulla, ut dignissim sapien. Nullam eu malesuada ligula. Quisque vehicula orci a cursus imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi quam, convallis quis condimentum sit amet, faucibus in justo. Integer nulla tellus, porta eu sollicitudin sit amet, iaculis sit amet libero. Nunc a pulvinar arcu.\n\n' +
+    '## Look a Tweet!\n\n' +
+    '<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I made a thing: <a href="https://t.co/THORs8ZtKb">https://t.co/THORs8ZtKb</a></p>&mdash; Matt Zabriskie (@mzabriskie) <a href="https://twitter.com/mzabriskie/status/658737202550079488">October 26, 2015</a></blockquote>\n\n' +
+    '## I can haz code?\n\n' +
+    '```js\n' +
+    'import React from \'react\';\n' +
+    'import ReactDOM from \'react-dom\';\n' +
+    'const container = document.getElementById(\'container\');\n\n' +
+    'const App = React.createClass({\n' +
+    ' render() {\n' +
+    '   let index = 0;\n' +
+    '   const children = React.Children.map(this.props.children, (child) => {{\n' +
+    '     return React.addons.cloneWithProps(child, {\n' +
+    '       ref: \'child-\' + (index++)\n' +
+    '     });\n' +
+    '   });\n\n' +
+    '   return (\n' +
+    '     <div>{children}</div>\n' +
+    '   );\n' +
+    ' }\n' +
+    '});\n\n' +
+    'ReactDOM.render(<App/>, container);' +
+    '```\n' +
+    '```js\n' +
+    'console.log(Math.PI);\n' +
+    'let firstName = \'Fred\';\n' +
+    'let lastName = \'Flintstone\';\n' +
+    '```\n\n' +
+    '---\n' +
+    '# H1\n' +
+    '## H2\n' +
+    '### H3\n' +
+    '#### H4\n' +
+    '##### H5\n' +
+    '###### H6\n' +
+    '---\n' +
+    '## Random Formatting\n\n' +
+    'It has been said:\n' +
+    '> Blah, blah, blah\n\n' +
 		'This is a sentance that has `code` in the middle.\n\n' +
-    '<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I made a thing: <a href="https://t.co/THORs8ZtKb">https://t.co/THORs8ZtKb</a></p>&mdash; Matt Zabriskie (@mzabriskie) <a href="https://twitter.com/mzabriskie/status/658737202550079488">October 26, 2015</a></blockquote>' +
+    'This is a [link](https://twitter.com/mzabriskie) to the interwebs.\n\n' +
+    'This is _italic_.\n\n' +
+    'This is __bold__.\n\n' +
+    '---\n' +
 		'<table><thead><tr><th>F</th><th>B</th></tr></thead><tbody>' +
 		'<tr><td>foo</td><td>boo</td></tr>' +
 		'<tr><td>far</td><td>bar</td></tr>' +
 		'<tr><td>fart</td><td>bart</td></tr>' +
 		'</tbody></table>\n\n' +
-		'```js\n' +
-		'import React from \'react\';\n\n' +
-		'const App = React.createClass({\n' +
-    '  render() {\n' +
-		'    let index = 0;\n' +
-		'    const children = React.Children.map(this.props.children, (child) => {\n' +
-		'      return React.addons.cloneWithProps(child, {\n' +
-		'        ref: \'child-\' + (index++)\n' +
-		'      });\n' +
-		'    });\n\n' +
-		'    return (\n' +
-		'      <div>\n' +
-		'        {children}\n' +
-		'      </div>\n' +
-		'    );\n' +
-		'  }\n' +
-		'});\n\n' +
-		'ReactDOM.render(<App/>, document.getElementById(\'container\'));' +
-		'```\n\n' +
-		'```js\n' +
-		'var PI = 3.14159265359;\n' +
-		'var firstName = \'Fred\'\n' +
-		'var lastName = \'Flintstone\'\n' +
-		'```\n\n' +
-		'- A\n- B\n- C';
+    '- A\n- B\n- C';
 
 marked.setOptions({
 	highlight: function (code) {
@@ -104,8 +121,8 @@ export default class Article extends Component {
         <div className="content-wrapper">
           <section>
             <div className="Article__Meta">
-              <span><i className="icon-calendar"></i>{publishDate}</span>
-              <span><i className="icon-time"></i>{readingTime} minute read</span>
+              <span><i className="fa fa-calendar"/>{publishDate}</span>
+              <span><i className="fa fa-clock-o"/>{readingTime} minute read</span>
               <ShareSocial/>
             </div>
           </section>
@@ -114,7 +131,7 @@ export default class Article extends Component {
             <div className="Article__Meta">
               <span>
                 <a href="javascript://" onClick={this.handleCommentsClick.bind(this)}>
-                  <i className="icon-comment"></i>{' '}
+                  <i className="fa fa-comment"/>{' '}
                   {toggleCommentsMessage}
                 </a>
               </span>

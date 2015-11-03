@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mzabriskie/orbital",
   "dependencies": {
+    "font-awesome": "^4.4.0",
     "highlight.js": "^8.6.0",
     "history": "^1.13.0",
     "marked": "^0.3.3",
@@ -30,8 +31,11 @@
     "react-router": "^1.0.0-rc3"
   },
   "devDependencies": {
-    "webpack": "^1.9.10",
+    "css-loader": "^0.21.0",
+    "file-loader": "^0.8.4",
     "babel-core": "^5.5.6",
-    "babel-loader": "^5.1.4"
+    "babel-loader": "^5.1.4",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.9.10"
   }
 }
